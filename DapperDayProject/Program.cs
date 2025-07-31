@@ -1,6 +1,15 @@
+using DapperDayProject.Context;
+using DapperDayProject.Repositories.Abstract;
+using DapperDayProject.Repositories.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<DapperContext>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

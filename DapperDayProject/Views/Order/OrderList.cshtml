@@ -1,0 +1,33 @@
+﻿@model List<DapperDayProject.Dtos.OrderDtos.ResultOrderDto>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Müşteri</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderId</td>
+                <td>@item.ProductName</td>
+                <td>@item.ProductPrice</td>
+                <td>@item.ProductCount</td>
+                <td>@item.OrderId</td>
+                <td><a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Order/UpdateOrder/@item.OrderId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Order/CreateOrder/" class="btn btn-info">Yeni Sipariş Girişi</a>
+</div>

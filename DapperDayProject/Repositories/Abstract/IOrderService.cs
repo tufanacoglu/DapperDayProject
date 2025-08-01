@@ -9,5 +9,6 @@ namespace DapperDayProject.Repositories.Abstract
         Task UpdateOrderAsync(UpdateOrderDto updateOrderDto);
         Task DeleteOrderAsync(int id);
         Task<GetOrderByIdDto> GetOrderByIdAsync(int id);
+        Task<List<ResultOrderWithCustomerDto>> GetOrderWithCustomerAsync();
     }
 }

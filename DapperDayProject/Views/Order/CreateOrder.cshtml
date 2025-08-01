@@ -1,0 +1,24 @@
+﻿@model DapperDayProject.Dtos.OrderDtos.CreateOrderDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<form method="post">
+    <div class="container">
+        <br /><br />
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+        <label>Ürün Fiyatı</label>
+        <input type="text" asp-for="ProductPrice" class="form-control" />
+        <br />
+        <label>Ürün Adet</label>
+        <input type="text" asp-for="ProductCount" class="form-control" />
+        <br />
+        <label>Müşteri Id</label>
+        <input type="text" asp-for="CustomerId" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Siparişi Oluştur</button>
+    </div>
+</form>

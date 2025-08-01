@@ -51,9 +51,18 @@ namespace DapperDayProject.Repositories.Concrete
             var parameters = new DynamicParameters();
             parameters.Add("@orderId", id);
             var connection = _context.CreateConnection();
-            var values = await connection.QueryFirstAsync<GetOrderByIdDto>(query);
+            var values = await connection.QueryFirstAsync<GetOrderByIdDto>(query,parameters);
             return values;
         }
+
+        public async Task<List<ResultOrderWithCustomerDto>> GetOrderWithCustomerAsync()
+        {
+            var query = "Select OrderId, ProductName, ProductPrice, ProductCount, CustomerName, CustomerSurname From TblOrder Inner Join TblCustomer On TblOrder.CustomerId=TblCustomer.CustomerId";
+            var connection = _context.CreateConnection();
+            var values = await connection.QueryAsync<ResultOrderWithCustomerDto>(query);
+            return values.ToList();
+        }
+
 
         public async Task UpdateOrderAsync(UpdateOrderDto updateOrderDto)
         {
